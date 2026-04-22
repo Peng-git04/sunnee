@@ -1,33 +1,33 @@
 # 🧴 Sunnee Kids — Bottle Configurator
 
-Configuratore interattivo per la personalizzazione della bottiglia termica in omaggio con il primo ordine della linea **Sunnee Kids**.  
-L'utente può scegliere il colore di tappo, corpo e fondo tra 10 colori predefiniti, con anteprima in tempo reale.
+An interactive configurator for customizing the thermal bottle included as a free gift with the first order of the **Sunnee Kids** line.  
+Users can choose the color of the cap, body, and bottom from 10 predefined colors, with a real-time preview.
 
 ---
 
-## ✨ Funzionalità
+## ✨ Features
 
-- **3 step guidati** — tappo → corpo → fondo, con navigazione Avanti / Indietro
-- **10 colori predefiniti** — palette vivace pensata per un pubblico kids
-- **Anteprima live** — la bottiglia SVG si aggiorna in tempo reale ad ogni selezione
-- **Schermata di conferma** — riepilogo visivo dei colori scelti al momento dell'invio
-- **Ricomincia** — l'utente può resettare e ripetere la configurazione
+- **3 guided steps** — cap → body → bottom, with Next / Back navigation
+- **10 predefined colors** — a vibrant palette designed for a kids audience
+- **Live preview** — the SVG bottle updates in real time with every selection
+- **Confirmation screen** — visual summary of the chosen colors upon submission
+- **Restart** — users can reset and redo the configuration at any time
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Tecnologia | Versione |
+| Technology | Version |
 |---|---|
 | [Vue 3](https://vuejs.org/) | `^3.x` |
 | [TypeScript](https://www.typescriptlang.org/) | `^5.x` |
 | [Vite](https://vitejs.dev/) | `^5.x` |
 
-Nessuna dipendenza UI esterna — tutto il design è custom in CSS scoped.
+No external UI dependencies — all design is custom scoped CSS.
 
 ---
 
-## 📁 Struttura del progetto
+## 📁 Project Structure
 
 ```
 sunnee-kids-configurator/
@@ -43,85 +43,86 @@ sunnee-kids-configurator/
     ├── style.css
     ├── vite-env.d.ts
     ├── data/
-    │   └── colors.ts          # Palette colori e definizione step
+    │   └── colors.ts          # Color palette and step definitions
     └── components/
-        ├── BottleConfigurator.vue   # Componente root del configuratore
-        ├── BottlePreview.vue        # Anteprima SVG della bottiglia
-        ├── ColorGrid.vue            # Griglia di selezione colori
-        └── StepsBar.vue             # Barra di avanzamento step
+        ├── BottleConfigurator.vue   # Root configurator component
+        ├── BottlePreview.vue        # SVG bottle preview
+        ├── ColorGrid.vue            # Color selection grid
+        └── StepsBar.vue             # Step progress bar
 ```
 
 ---
 
-## 🚀 Installazione e avvio
+## 🚀 Installation & Setup
 
-### Prerequisiti
+### Prerequisites
 
 - **Node.js** >= 18.x
 - **npm** >= 9.x
 
-### Setup
+### Getting Started
 
 ```bash
-# 1. Clona il repository
-git clone https://github.com/tuo-username/sunnee-kids-configurator.git
+# 1. Clone the repository
+git clone https://github.com/your-username/sunnee-kids-configurator.git
 cd sunnee-kids-configurator
 
-# 2. Installa le dipendenze
+# 2. Install dependencies
 npm install
 
-# 3. Avvia il server di sviluppo
+# 3. Start the development server
 npm run dev
 ```
 
-Apri il browser su `http://localhost:5173`.
+Open your browser at `http://localhost:5173`.
 
 ---
 
-## 📦 Build per produzione
+## 📦 Production Build
 
 ```bash
-# Genera i file ottimizzati nella cartella /dist
+# Generate optimized files in the /dist folder
 npm run build
 
-# Testa la build in locale
+# Preview the build locally
 npm run preview
 ```
 
-La cartella `dist/` è pronta per essere deployata su qualsiasi hosting statico (Netlify, Vercel, GitHub Pages, ecc.).
+The `dist/` folder is ready to be deployed on any static hosting platform (Netlify, Vercel, GitHub Pages, etc.).
 
 ---
 
-## 🎨 Palette colori
+## 🎨 Color Palette
 
-| # | Nome | Hex |
+| # | Name | Hex |
 |---|---|---|
-| 1 | Rosso Corallo | `#FF6B6B` |
-| 2 | Arancio Sole | `#FF9F43` |
-| 3 | Giallo Limone | `#FFD93D` |
-| 4 | Verde Menta | `#6BCB77` |
-| 5 | Turchese | `#4ECDC4` |
-| 6 | Azzurro Cielo | `#74B9FF` |
-| 7 | Lilla Sogno | `#A29BFE` |
-| 8 | Rosa Bubble | `#FD79A8` |
-| 9 | Pesca Dorata | `#FDCB6E` |
-| 10 | Grigio Perla | `#B2BEC3` |
+| 1 | Coral Red | `#FF6B6B` |
+| 2 | Sun Orange | `#FF9F43` |
+| 3 | Lemon Yellow | `#FFD93D` |
+| 4 | Mint Green | `#6BCB77` |
+| 5 | Turquoise | `#4ECDC4` |
+| 6 | Sky Blue | `#74B9FF` |
+| 7 | Dream Lilac | `#A29BFE` |
+| 8 | Bubble Pink | `#FD79A8` |
+| 9 | Golden Peach | `#FDCB6E` |
+| 10 | Pearl Gray | `#B2BEC3` |
 
 ---
 
-## 🧩 Componenti
+## 🧩 Components
 
 ### `BottleConfigurator.vue`
-Componente principale. Gestisce lo stato globale: step corrente, colori scelti e transizione alla schermata di conferma. Orchestra gli altri componenti.
+Root component. Manages global state: current step, chosen colors, and transition to the confirmation screen. Orchestrates all other components.
 
 ### `BottlePreview.vue`
-Renderizza la bottiglia termica in SVG. Riceve come prop il tuple `[capIdx, bodyIdx, bottomIdx]` e aggiorna i colori in tempo reale tramite `computed`.
+Renders the thermal bottle as an SVG. Receives the `[capIdx, bodyIdx, bottomIdx]` tuple as a prop and updates colors in real time via `computed`.
 
 ### `ColorGrid.vue`
-Griglia 5×2 di bottoni circolari colorati. Emette l'evento `select` con l'id del colore cliccato. Evidenzia la selezione corrente con bordo e segno di spunta.
+A 5×2 grid of circular colored buttons. Emits the `select` event with the clicked color's id. Highlights the current selection with a border and checkmark.
 
 ### `StepsBar.vue`
-Barra visiva a tre dot con linee di connessione. Mostra lo stato di ogni step: `idle`, `active` o `done`.
+A visual three-dot bar with connecting lines. Displays the status of each step: `idle`, `active`, or `done`.
 
 ### `data/colors.ts`
-Sorgente unica dei dati: esporta le interfacce `Color` e `Step`, l'array `COLORS` e l'array `STEPS`.
+Single source of truth for data: exports the `Color` and `Step` interfaces, the `COLORS` array, and the `STEPS` array.
+
